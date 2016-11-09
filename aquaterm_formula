@@ -1,0 +1,20 @@
+diff --git a/Library/Formula/gnuplot.rb b/Library/Formula/gnuplot.rb
+index ef60286..262920f 100644
+--- a/Library/Formula/gnuplot.rb
++++ b/Library/Formula/gnuplot.rb
+@@ -17,6 +17,7 @@ class Gnuplot < Formula
+   option 'tests',  'Verify the build with make check (1 min)'
+   option 'without-emacs', 'Do not build Emacs lisp files'
+   option 'latex',  'Build with LaTeX support'
++  option 'aquaterm', 'Build with AquaTerm support'
+
+   if build.head?
+     depends_on :automake
+@@ -53,6 +54,7 @@ class Gnuplot < Formula
+     args << '--enable-qt'             if build.include? 'qt'
+     args << '--without-lua'           if build.include? 'nolua'
+     args << '--without-lisp-files'    if build.include? 'without-emacs'
++    args << '--with-aquaterm'         if build.include? 'aquaterm'
+
+     if build.include? 'latex'
+       args << '--with-latex'
